@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopify Bill Pay — Omer Zinger</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/case-study.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <nav class="nav" id="nav">
+        <a href="../" class="nav__logo">OZ</a>
+        <div class="nav__links">
+            <a href="../#work" class="nav__link">Work</a>
+            <a href="../#about" class="nav__link">About</a>
+            <a href="../#contact" class="nav__link">Contact</a>
+        </div>
+        <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="../#work" class="mobile-menu__link">Work</a>
+        <a href="../#about" class="mobile-menu__link">About</a>
+        <a href="../#contact" class="mobile-menu__link">Contact</a>
+    </div>
+
+    <!-- Hero -->
+    <header class="cs-hero">
+        <div class="cs-hero__bg" style="background: linear-gradient(135deg, #95BF47 0%, #5E8E3E 100%);"></div>
+        <div class="cs-hero__content" data-animate="fade-up">
+            <a href="../" class="cs-hero__back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to all projects
+            </a>
+            <div class="cs-hero__meta">
+                <span class="cs-hero__company">Melio &times; Shopify</span>
+                <span class="cs-hero__year">2022</span>
+            </div>
+            <h1 class="cs-hero__title">Shopify Bill Pay</h1>
+            <p class="cs-hero__subtitle">Designing a seamless bill payment experience within Shopify's ecosystem, integrating Melio's powerful payment flow with Shopify's Polaris design system for millions of merchants.</p>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="cs-content">
+        <div class="cs-info-grid" data-animate="fade-up">
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Role</span>
+                <span class="cs-info-item__value">Lead Product Designer</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Team</span>
+                <span class="cs-info-item__value">Melio Partnerships</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Platform</span>
+                <span class="cs-info-item__value">Web (Shopify Admin)</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Duration</span>
+                <span class="cs-info-item__value">6 Months</span>
+            </div>
+        </div>
+
+        <!-- Challenge -->
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">The Challenge</span>
+            <h2 class="cs-section__title">Bringing B2B payments to where merchants already work</h2>
+            <p>Small business owners using Shopify needed a way to manage bill payments without leaving the platform they already know and trust. The challenge was to create a <strong>seamless Shopify-native experience</strong> that felt like it was built by Shopify itself, while leveraging Melio's powerful payment infrastructure behind the scenes.</p>
+            <p>This required close collaboration between two companies with different design systems, product cultures, and technical constraints — all while meeting strict Shopify requirements for quality and consistency.</p>
+        </section>
+
+        <!-- Mockup -->
+        <div class="cs-image" style="background: linear-gradient(135deg, #95BF47 0%, #5E8E3E 100%);" data-animate="fade-up">
+            <div style="width: 70%; padding: 40px 0;">
+                <div class="mockup-browser" style="transform: scale(1.1);">
+                    <div class="mockup-browser__bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-browser__content" style="background: #F6F6F7; min-height: 280px;">
+                        <div class="mockup-shopify">
+                            <div class="mockup-shopify__sidebar" style="min-height: 250px;"></div>
+                            <div class="mockup-shopify__main">
+                                <div class="mockup-shopify__header"></div>
+                                <div class="mockup-shopify__table">
+                                    <div class="mockup-shopify__row" style="height: 30px;"></div>
+                                    <div class="mockup-shopify__row" style="height: 30px;"></div>
+                                    <div class="mockup-shopify__row" style="height: 30px;"></div>
+                                    <div class="mockup-shopify__row" style="height: 30px;"></div>
+                                    <div class="mockup-shopify__row" style="height: 30px;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Approach -->
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">Approach</span>
+            <h2 class="cs-section__title">Designing within Shopify's Polaris ecosystem</h2>
+            <p>Meeting Shopify's strict design requirements meant fully adopting their <strong>Polaris design system</strong>. We adopted the familiar table view layout from Shopify's "Products" and "Orders" tabs and applied the same methodology to the Melio payment flow.</p>
+            <p>A key design decision was reimagining Melio's multi-page wizard flow into a <strong>single-page step-by-step experience</strong>. Unlike Melio's standalone product where users navigate through dedicated pages, in Shopify, users can complete the entire payment flow within the same page — matching the mental model Shopify merchants already have.</p>
+        </section>
+
+        <!-- Process -->
+        <div class="cs-process" data-animate="fade-up">
+            <div class="cs-process__step">
+                <span class="cs-process__number">01</span>
+                <div class="cs-process__text">
+                    <h4>Cross-company alignment</h4>
+                    <p>Defined the work method and execution process with stakeholders from both Melio and Shopify, establishing shared design principles and review cadences.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">02</span>
+                <div class="cs-process__text">
+                    <h4>Polaris pattern audit</h4>
+                    <p>Deep-dived into Shopify's Polaris design system to identify common patterns, ensuring every interaction felt native to the Shopify ecosystem.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">03</span>
+                <div class="cs-process__text">
+                    <h4>Flow redesign</h4>
+                    <p>Reimagined Melio's multi-step wizard into a single-page flow that aligns with Shopify's interaction paradigms while maintaining payment clarity.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">04</span>
+                <div class="cs-process__text">
+                    <h4>Iterative testing & launch</h4>
+                    <p>Conducted merchant testing, iterated on feedback, and launched to Shopify's massive merchant base with tracked KPIs for success measurement.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Results -->
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">Results</span>
+            <h2 class="cs-section__title">Measurable impact from day one</h2>
+            <p>The launch was tracked against key KPIs including onboarded users, completed payments, bills created, and monthly active users. The seamless integration led to strong adoption, with merchants appreciating not having to leave their familiar Shopify admin environment to manage payments.</p>
+        </section>
+
+        <div class="cs-metrics" data-animate="fade-up">
+            <div class="cs-metric">
+                <div class="cs-metric__value">3x</div>
+                <div class="cs-metric__label">Faster onboarding vs standalone</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric__value">40%</div>
+                <div class="cs-metric__label">Higher completion rate</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric__value">M+</div>
+                <div class="cs-metric__label">Merchants with access</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Navigation -->
+    <nav class="cs-nav">
+        <a href="../" class="cs-nav__link">
+            <span class="cs-nav__label">&larr; Back</span>
+            <span class="cs-nav__title">All Projects</span>
+        </a>
+        <a href="melio-payments.html" class="cs-nav__link cs-nav__link--next">
+            <span class="cs-nav__label">Next Project &rarr;</span>
+            <span class="cs-nav__title">Melio Payments</span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <span class="footer__copyright">&copy; 2025 Omer Zinger</span>
+            <span class="footer__tagline">Designed with intention</span>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

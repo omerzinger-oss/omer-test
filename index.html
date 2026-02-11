@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omer Zinger — Product Designer</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Cursor follower -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <a href="/" class="nav__logo">OZ</a>
+        <div class="nav__links">
+            <a href="#work" class="nav__link">Work</a>
+            <a href="#about" class="nav__link">About</a>
+            <a href="#contact" class="nav__link">Contact</a>
+        </div>
+        <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="#work" class="mobile-menu__link">Work</a>
+        <a href="#about" class="mobile-menu__link">About</a>
+        <a href="#contact" class="mobile-menu__link">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero__container">
+            <div class="hero__badge" data-animate="fade-up">Product Designer & Team Leader</div>
+            <h1 class="hero__title" data-animate="fade-up" data-delay="100">
+                <span class="hero__title-line">Crafting digital</span>
+                <span class="hero__title-line">experiences that</span>
+                <span class="hero__title-line hero__title-line--accent">users love<span class="hero__dot">.</span></span>
+            </h1>
+            <p class="hero__subtitle" data-animate="fade-up" data-delay="200">
+                I empower brands through user-centric and intuitive product design — turning complex problems into elegant, simple solutions.
+            </p>
+            <div class="hero__cta" data-animate="fade-up" data-delay="300">
+                <a href="#work" class="btn btn--primary">View Selected Work</a>
+                <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+            </div>
+        </div>
+        <div class="hero__scroll-indicator" data-animate="fade-up" data-delay="500">
+            <span>Scroll to explore</span>
+            <div class="hero__scroll-line"></div>
+        </div>
+    </header>
+
+    <!-- Selected Work Section -->
+    <section class="work" id="work">
+        <div class="section__header" data-animate="fade-up">
+            <span class="section__label">Selected Work</span>
+            <h2 class="section__title">Featured Projects</h2>
+        </div>
+
+        <!-- Project 1: Shopify Bill Pay -->
+        <a href="work/shopify-bill-pay.html" class="project" data-animate="fade-up">
+            <div class="project__image-wrapper">
+                <div class="project__image" style="background: linear-gradient(135deg, #95BF47 0%, #5E8E3E 100%);">
+                    <div class="project__image-content">
+                        <div class="project__mockup">
+                            <div class="mockup-browser">
+                                <div class="mockup-browser__bar">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-browser__content" style="background: #F6F6F7;">
+                                    <div class="mockup-shopify">
+                                        <div class="mockup-shopify__sidebar"></div>
+                                        <div class="mockup-shopify__main">
+                                            <div class="mockup-shopify__header"></div>
+                                            <div class="mockup-shopify__table">
+                                                <div class="mockup-shopify__row"></div>
+                                                <div class="mockup-shopify__row"></div>
+                                                <div class="mockup-shopify__row"></div>
+                                                <div class="mockup-shopify__row"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__overlay">
+                    <span class="project__view">View Case Study &rarr;</span>
+                </div>
+            </div>
+            <div class="project__info">
+                <div class="project__meta">
+                    <span class="project__company">Melio &times; Shopify</span>
+                    <span class="project__year">2022</span>
+                </div>
+                <h3 class="project__title">Shopify Bill Pay</h3>
+                <p class="project__desc">Designed a seamless bill payment experience within Shopify's ecosystem, integrating Melio's payment flow with Polaris design patterns for millions of merchants.</p>
+                <div class="project__tags">
+                    <span class="tag">Product Design</span>
+                    <span class="tag">B2B Payments</span>
+                    <span class="tag">Design Systems</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 2: Melio Payments -->
+        <a href="work/melio-payments.html" class="project project--reverse" data-animate="fade-up">
+            <div class="project__image-wrapper">
+                <div class="project__image" style="background: linear-gradient(135deg, #00D4AA 0%, #0891B2 100%);">
+                    <div class="project__image-content">
+                        <div class="project__mockup">
+                            <div class="mockup-browser">
+                                <div class="mockup-browser__bar">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-browser__content" style="background: #FFFFFF;">
+                                    <div class="mockup-melio">
+                                        <div class="mockup-melio__nav"></div>
+                                        <div class="mockup-melio__hero">
+                                            <div class="mockup-melio__text"></div>
+                                            <div class="mockup-melio__text mockup-melio__text--short"></div>
+                                            <div class="mockup-melio__btn"></div>
+                                        </div>
+                                        <div class="mockup-melio__cards">
+                                            <div class="mockup-melio__card"></div>
+                                            <div class="mockup-melio__card"></div>
+                                            <div class="mockup-melio__card"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__overlay">
+                    <span class="project__view">View Case Study &rarr;</span>
+                </div>
+            </div>
+            <div class="project__info">
+                <div class="project__meta">
+                    <span class="project__company">Melio</span>
+                    <span class="project__year">2021 — 2023</span>
+                </div>
+                <h3 class="project__title">Melio Payments</h3>
+                <p class="project__desc">Led design for Melio's partnerships group, managing 3 product design teams to create smart, simple B2B payment solutions for small businesses.</p>
+                <div class="project__tags">
+                    <span class="tag">Design Leadership</span>
+                    <span class="tag">B2B Fintech</span>
+                    <span class="tag">Strategy</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 3: First Financial Bank -->
+        <a href="work/first-financial-bank.html" class="project" data-animate="fade-up">
+            <div class="project__image-wrapper">
+                <div class="project__image" style="background: linear-gradient(135deg, #1E3A5F 0%, #0F1B2D 100%);">
+                    <div class="project__image-content">
+                        <div class="project__mockup">
+                            <div class="mockup-phone">
+                                <div class="mockup-phone__notch"></div>
+                                <div class="mockup-phone__screen" style="background: #F0F4F8;">
+                                    <div class="mockup-bank">
+                                        <div class="mockup-bank__header"></div>
+                                        <div class="mockup-bank__balance">
+                                            <div class="mockup-bank__amount"></div>
+                                        </div>
+                                        <div class="mockup-bank__actions">
+                                            <div class="mockup-bank__action"></div>
+                                            <div class="mockup-bank__action"></div>
+                                            <div class="mockup-bank__action"></div>
+                                        </div>
+                                        <div class="mockup-bank__transactions">
+                                            <div class="mockup-bank__tx"></div>
+                                            <div class="mockup-bank__tx"></div>
+                                            <div class="mockup-bank__tx"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__overlay">
+                    <span class="project__view">View Case Study &rarr;</span>
+                </div>
+            </div>
+            <div class="project__info">
+                <div class="project__meta">
+                    <span class="project__company">First Financial Bank</span>
+                    <span class="project__year">2022</span>
+                </div>
+                <h3 class="project__title">First Financial Bank</h3>
+                <p class="project__desc">Reimagined the digital banking experience with a focus on accessibility, trust, and modern financial management for everyday users.</p>
+                <div class="project__tags">
+                    <span class="tag">Mobile Design</span>
+                    <span class="tag">Banking</span>
+                    <span class="tag">UX Research</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 4: Houzz Pro Profile -->
+        <a href="work/houzz-pro-profile.html" class="project project--reverse" data-animate="fade-up">
+            <div class="project__image-wrapper">
+                <div class="project__image" style="background: linear-gradient(135deg, #4DBC82 0%, #2B8A3E 100%);">
+                    <div class="project__image-content">
+                        <div class="project__mockup">
+                            <div class="mockup-browser">
+                                <div class="mockup-browser__bar">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-browser__content" style="background: #FFFFFF;">
+                                    <div class="mockup-houzz">
+                                        <div class="mockup-houzz__cover"></div>
+                                        <div class="mockup-houzz__profile">
+                                            <div class="mockup-houzz__avatar"></div>
+                                            <div class="mockup-houzz__info">
+                                                <div class="mockup-houzz__name"></div>
+                                                <div class="mockup-houzz__rating">
+                                                    <span></span><span></span><span></span><span></span><span></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="mockup-houzz__gallery">
+                                            <div class="mockup-houzz__thumb"></div>
+                                            <div class="mockup-houzz__thumb"></div>
+                                            <div class="mockup-houzz__thumb"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__overlay">
+                    <span class="project__view">View Case Study &rarr;</span>
+                </div>
+            </div>
+            <div class="project__info">
+                <div class="project__meta">
+                    <span class="project__company">Houzz</span>
+                    <span class="project__year">2019 — 2021</span>
+                </div>
+                <h3 class="project__title">Houzz Pro Profile</h3>
+                <p class="project__desc">Redesigned the professional profile experience to better showcase portfolios, achievements, and reviews — improving content visibility for 57% of users on low-res screens.</p>
+                <div class="project__tags">
+                    <span class="tag">Responsive Design</span>
+                    <span class="tag">User Research</span>
+                    <span class="tag">A/B Testing</span>
+                </div>
+            </div>
+        </a>
+
+        <!-- Project 5: Houzz Estimate Builder -->
+        <a href="work/houzz-estimate-builder.html" class="project" data-animate="fade-up">
+            <div class="project__image-wrapper">
+                <div class="project__image" style="background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);">
+                    <div class="project__image-content">
+                        <div class="project__mockup">
+                            <div class="mockup-browser">
+                                <div class="mockup-browser__bar">
+                                    <span></span><span></span><span></span>
+                                </div>
+                                <div class="mockup-browser__content" style="background: #FAFAFA;">
+                                    <div class="mockup-estimate">
+                                        <div class="mockup-estimate__header"></div>
+                                        <div class="mockup-estimate__line">
+                                            <div class="mockup-estimate__item"></div>
+                                            <div class="mockup-estimate__price"></div>
+                                        </div>
+                                        <div class="mockup-estimate__line">
+                                            <div class="mockup-estimate__item"></div>
+                                            <div class="mockup-estimate__price"></div>
+                                        </div>
+                                        <div class="mockup-estimate__line">
+                                            <div class="mockup-estimate__item"></div>
+                                            <div class="mockup-estimate__price"></div>
+                                        </div>
+                                        <div class="mockup-estimate__total">
+                                            <div class="mockup-estimate__total-label"></div>
+                                            <div class="mockup-estimate__total-amount"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="project__overlay">
+                    <span class="project__view">View Case Study &rarr;</span>
+                </div>
+            </div>
+            <div class="project__info">
+                <div class="project__meta">
+                    <span class="project__company">Houzz</span>
+                    <span class="project__year">2020</span>
+                </div>
+                <h3 class="project__title">Houzz Estimate Builder</h3>
+                <p class="project__desc">Created an intuitive estimate builder tool for home remodeling professionals, streamlining the quoting process and improving client communication.</p>
+                <div class="project__tags">
+                    <span class="tag">SaaS Tool</span>
+                    <span class="tag">Pro Tools</span>
+                    <span class="tag">Workflow Design</span>
+                </div>
+            </div>
+        </a>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="about__container">
+            <div class="about__content" data-animate="fade-up">
+                <span class="section__label">About</span>
+                <h2 class="section__title">Designing with<br>purpose & empathy</h2>
+                <div class="about__text">
+                    <p>I'm a product designer and team leader based in Tel Aviv, passionate about empowering brands through user-centric and intuitive product design. With experience at companies like <strong>HoneyBook</strong>, <strong>Melio</strong>, and <strong>Houzz</strong>, I specialize in turning complex business challenges into elegant digital experiences.</p>
+                    <p>I lead design teams, define product strategies, and analyze user data to create products that people genuinely love. My approach combines rigorous user research with bold creative thinking — because great design should be both beautiful and deeply functional.</p>
+                </div>
+                <div class="about__stats">
+                    <div class="stat" data-animate="fade-up" data-delay="100">
+                        <span class="stat__number" data-count="10">0</span><span class="stat__suffix">+</span>
+                        <span class="stat__label">Years of Experience</span>
+                    </div>
+                    <div class="stat" data-animate="fade-up" data-delay="200">
+                        <span class="stat__number" data-count="30">0</span><span class="stat__suffix">+</span>
+                        <span class="stat__label">Products Shipped</span>
+                    </div>
+                    <div class="stat" data-animate="fade-up" data-delay="300">
+                        <span class="stat__number" data-count="3">0</span>
+                        <span class="stat__label">Design Teams Led</span>
+                    </div>
+                </div>
+            </div>
+            <div class="about__skills" data-animate="fade-up" data-delay="200">
+                <h3 class="about__skills-title">Expertise</h3>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <div class="skill-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+                        </div>
+                        <h4>Product Design</h4>
+                        <p>End-to-end product thinking from strategy to pixel-perfect execution</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="3"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+                        </div>
+                        <h4>UX Research</h4>
+                        <p>Data-driven insights through user interviews, testing & analytics</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h4>Design Leadership</h4>
+                        <p>Building and mentoring high-performing design teams</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-card__icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <h4>Design Systems</h4>
+                        <p>Scalable component libraries and design language foundations</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+        <div class="marquee__inner">
+            <span>Product Design</span>
+            <span class="marquee__dot"></span>
+            <span>UX Strategy</span>
+            <span class="marquee__dot"></span>
+            <span>Design Systems</span>
+            <span class="marquee__dot"></span>
+            <span>User Research</span>
+            <span class="marquee__dot"></span>
+            <span>Team Leadership</span>
+            <span class="marquee__dot"></span>
+            <span>Product Design</span>
+            <span class="marquee__dot"></span>
+            <span>UX Strategy</span>
+            <span class="marquee__dot"></span>
+            <span>Design Systems</span>
+            <span class="marquee__dot"></span>
+            <span>User Research</span>
+            <span class="marquee__dot"></span>
+            <span>Team Leadership</span>
+            <span class="marquee__dot"></span>
+        </div>
+    </div>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact__container">
+            <div class="contact__content" data-animate="fade-up">
+                <span class="section__label">Get In Touch</span>
+                <h2 class="contact__title">Let's create<br>something great<br>together<span class="hero__dot">.</span></h2>
+                <p class="contact__text">Have a project in mind or want to discuss design leadership? I'd love to hear from you.</p>
+                <div class="contact__links">
+                    <a href="mailto:hello@omerzinger.com" class="contact__link">
+                        <span class="contact__link-label">Email</span>
+                        <span class="contact__link-value">hello@omerzinger.com</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/omerzinger" target="_blank" rel="noopener" class="contact__link">
+                        <span class="contact__link-label">LinkedIn</span>
+                        <span class="contact__link-value">linkedin.com/in/omerzinger</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                    <a href="https://dribbble.com/omerzinger" target="_blank" rel="noopener" class="contact__link">
+                        <span class="contact__link-label">Dribbble</span>
+                        <span class="contact__link-value">dribbble.com/omerzinger</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <span class="footer__copyright">&copy; 2025 Omer Zinger</span>
+            <span class="footer__tagline">Designed with intention</span>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

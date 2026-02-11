@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houzz Pro Profile — Omer Zinger</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/case-study.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <nav class="nav" id="nav">
+        <a href="../" class="nav__logo">OZ</a>
+        <div class="nav__links">
+            <a href="../#work" class="nav__link">Work</a>
+            <a href="../#about" class="nav__link">About</a>
+            <a href="../#contact" class="nav__link">Contact</a>
+        </div>
+        <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="../#work" class="mobile-menu__link">Work</a>
+        <a href="../#about" class="mobile-menu__link">About</a>
+        <a href="../#contact" class="mobile-menu__link">Contact</a>
+    </div>
+
+    <header class="cs-hero">
+        <div class="cs-hero__bg" style="background: linear-gradient(135deg, #4DBC82 0%, #2B8A3E 100%);"></div>
+        <div class="cs-hero__content" data-animate="fade-up">
+            <a href="../" class="cs-hero__back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to all projects
+            </a>
+            <div class="cs-hero__meta">
+                <span class="cs-hero__company">Houzz</span>
+                <span class="cs-hero__year">2019 — 2021</span>
+            </div>
+            <h1 class="cs-hero__title">Houzz Pro Profile</h1>
+            <p class="cs-hero__subtitle">Redesigning the professional profile experience to maximize visibility, showcase portfolios, and drive more quality connections between homeowners and professionals.</p>
+        </div>
+    </header>
+
+    <main class="cs-content">
+        <div class="cs-info-grid" data-animate="fade-up">
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Role</span>
+                <span class="cs-info-item__value">Senior Product Designer</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Platform</span>
+                <span class="cs-info-item__value">Web (Responsive)</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Method</span>
+                <span class="cs-info-item__value">A/B Testing</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Users</span>
+                <span class="cs-info-item__value">Millions of homeowners</span>
+            </div>
+        </div>
+
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">The Problem</span>
+            <h2 class="cs-section__title">Critical content hidden below the fold</h2>
+            <p>The Houzz Pro Profile is where professionals showcase their work portfolios, achievements, certifications, and reviews — essentially their digital storefront to attract potential clients. But data revealed a significant problem: <strong>57% of Houzz desktop users were on low-resolution screens (1280px)</strong>, meaning a majority of profile-converting information was being lost below the fold.</p>
+            <p>Even more concerning, <strong>12.4% of users mostly didn't scroll below the fold</strong>. The old profile's 3-rail content layout created a condensed, bulky organization that made it difficult to scan at a glance and responded poorly across screen sizes.</p>
+        </section>
+
+        <div class="cs-image" style="background: linear-gradient(135deg, #4DBC82 0%, #2B8A3E 100%);" data-animate="fade-up">
+            <div style="width: 70%; padding: 40px 0;">
+                <div class="mockup-browser" style="transform: scale(1.1);">
+                    <div class="mockup-browser__bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-browser__content" style="background: #FFFFFF; min-height: 280px;">
+                        <div class="mockup-houzz">
+                            <div class="mockup-houzz__cover" style="height: 80px;"></div>
+                            <div class="mockup-houzz__profile" style="margin-bottom: 20px;">
+                                <div class="mockup-houzz__avatar" style="width: 50px; height: 50px; margin-top: -25px;"></div>
+                                <div class="mockup-houzz__info">
+                                    <div class="mockup-houzz__name" style="width: 120px; height: 16px;"></div>
+                                    <div class="mockup-houzz__rating">
+                                        <span></span><span></span><span></span><span></span><span></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mockup-houzz__gallery">
+                                <div class="mockup-houzz__thumb" style="height: 80px;"></div>
+                                <div class="mockup-houzz__thumb" style="height: 80px;"></div>
+                                <div class="mockup-houzz__thumb" style="height: 80px;"></div>
+                                <div class="mockup-houzz__thumb" style="height: 80px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">Research</span>
+            <h2 class="cs-section__title">Understanding what professionals value most</h2>
+            <p>To ground our redesign in real data, we interviewed <strong>10 professionals from similar categories</strong> — design-build firms, remodelers, and general contractors. We used a <strong>card sorting exercise</strong> where interviewees ranked the most important information their profile should promote.</p>
+            <p>The profile needed to better align with homeowners looking for specific projects that pros offer, while promoting the most pertinent content — particularly project photos and reviews, which were the strongest drivers of conversion.</p>
+        </section>
+
+        <div class="cs-process" data-animate="fade-up">
+            <div class="cs-process__step">
+                <span class="cs-process__number">01</span>
+                <div class="cs-process__text">
+                    <h4>Data analysis</h4>
+                    <p>Analyzed screen resolution data and scroll depth patterns to quantify how much converting content was being missed by the majority of users.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">02</span>
+                <div class="cs-process__text">
+                    <h4>Pro interviews & card sorting</h4>
+                    <p>Conducted structured interviews with 10 professionals, using card sorting to understand content priority from the supply side of the marketplace.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">03</span>
+                <div class="cs-process__text">
+                    <h4>Layout reorganization</h4>
+                    <p>Moved from a 3-rail layout to a cleaner, more scannable structure that surfaces portfolio photos and reviews above the fold on all screen sizes.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">04</span>
+                <div class="cs-process__text">
+                    <h4>KPI-driven validation</h4>
+                    <p>Measured success through time on site, "Contact Pro" clicks, and quality connections — the metrics that matter for both pros and homeowners.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">Impact</span>
+            <h2 class="cs-section__title">More visibility, more connections</h2>
+            <p>The redesigned profile dramatically improved content visibility for the 57% of users on low-res screens. By restructuring the layout and prioritizing the most converting content above the fold, we saw meaningful improvements in engagement and quality connections between homeowners and professionals.</p>
+        </section>
+
+        <div class="cs-metrics" data-animate="fade-up">
+            <div class="cs-metric">
+                <div class="cs-metric__value">57%</div>
+                <div class="cs-metric__label">Users impacted by redesign</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric__value">2x</div>
+                <div class="cs-metric__label">Above-fold content visibility</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric__value">10</div>
+                <div class="cs-metric__label">Pro interviews conducted</div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="cs-nav">
+        <a href="first-financial-bank.html" class="cs-nav__link">
+            <span class="cs-nav__label">&larr; Previous</span>
+            <span class="cs-nav__title">First Financial Bank</span>
+        </a>
+        <a href="houzz-estimate-builder.html" class="cs-nav__link cs-nav__link--next">
+            <span class="cs-nav__label">Next Project &rarr;</span>
+            <span class="cs-nav__title">Houzz Estimate Builder</span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <span class="footer__copyright">&copy; 2025 Omer Zinger</span>
+            <span class="footer__tagline">Designed with intention</span>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

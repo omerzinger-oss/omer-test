@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Houzz Estimate Builder — Omer Zinger</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/case-study.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <nav class="nav" id="nav">
+        <a href="../" class="nav__logo">OZ</a>
+        <div class="nav__links">
+            <a href="../#work" class="nav__link">Work</a>
+            <a href="../#about" class="nav__link">About</a>
+            <a href="../#contact" class="nav__link">Contact</a>
+        </div>
+        <button class="nav__menu-btn" id="menu-btn" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <a href="../#work" class="mobile-menu__link">Work</a>
+        <a href="../#about" class="mobile-menu__link">About</a>
+        <a href="../#contact" class="mobile-menu__link">Contact</a>
+    </div>
+
+    <header class="cs-hero">
+        <div class="cs-hero__bg" style="background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);"></div>
+        <div class="cs-hero__content" data-animate="fade-up">
+            <a href="../" class="cs-hero__back">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Back to all projects
+            </a>
+            <div class="cs-hero__meta">
+                <span class="cs-hero__company">Houzz</span>
+                <span class="cs-hero__year">2020</span>
+            </div>
+            <h1 class="cs-hero__title">Houzz Estimate Builder</h1>
+            <p class="cs-hero__subtitle">Creating an intuitive estimate builder tool for home remodeling professionals, streamlining the quoting process and improving client communication.</p>
+        </div>
+    </header>
+
+    <main class="cs-content">
+        <div class="cs-info-grid" data-animate="fade-up">
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Role</span>
+                <span class="cs-info-item__value">Senior Product Designer</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Product</span>
+                <span class="cs-info-item__value">Houzz Pro</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Platform</span>
+                <span class="cs-info-item__value">Web & Mobile</span>
+            </div>
+            <div class="cs-info-item">
+                <span class="cs-info-item__label">Category</span>
+                <span class="cs-info-item__value">SaaS / Pro Tools</span>
+            </div>
+        </div>
+
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">The Challenge</span>
+            <h2 class="cs-section__title">Professionalizing the estimate process</h2>
+            <p>Home remodeling professionals were spending hours creating estimates using spreadsheets, word processors, or even pen and paper. The results were often inconsistent, unprofessional-looking, and difficult to manage as projects evolved. <strong>Pros needed a purpose-built tool</strong> that was both powerful enough for complex projects and simple enough to use on the go.</p>
+            <p>The estimate builder had to handle the complexity of remodeling projects — multiple line items, material categories, labor costs, markups, and taxes — while presenting a clean, professional document to homeowner clients.</p>
+        </section>
+
+        <div class="cs-image" style="background: linear-gradient(135deg, #7C3AED 0%, #4F46E5 100%);" data-animate="fade-up">
+            <div style="width: 70%; padding: 40px 0;">
+                <div class="mockup-browser" style="transform: scale(1.1);">
+                    <div class="mockup-browser__bar"><span></span><span></span><span></span></div>
+                    <div class="mockup-browser__content" style="background: #FAFAFA; min-height: 280px;">
+                        <div class="mockup-estimate" style="padding: 10px;">
+                            <div class="mockup-estimate__header" style="height: 24px; margin-bottom: 12px;"></div>
+                            <div class="mockup-estimate__line" style="padding: 10px 0;">
+                                <div class="mockup-estimate__item" style="height: 14px;"></div>
+                                <div class="mockup-estimate__price" style="height: 14px;"></div>
+                            </div>
+                            <div class="mockup-estimate__line" style="padding: 10px 0;">
+                                <div class="mockup-estimate__item" style="height: 14px;"></div>
+                                <div class="mockup-estimate__price" style="height: 14px;"></div>
+                            </div>
+                            <div class="mockup-estimate__line" style="padding: 10px 0;">
+                                <div class="mockup-estimate__item" style="height: 14px;"></div>
+                                <div class="mockup-estimate__price" style="height: 14px;"></div>
+                            </div>
+                            <div class="mockup-estimate__line" style="padding: 10px 0;">
+                                <div class="mockup-estimate__item" style="height: 14px;"></div>
+                                <div class="mockup-estimate__price" style="height: 14px;"></div>
+                            </div>
+                            <div class="mockup-estimate__line" style="padding: 10px 0;">
+                                <div class="mockup-estimate__item" style="height: 14px;"></div>
+                                <div class="mockup-estimate__price" style="height: 14px;"></div>
+                            </div>
+                            <div class="mockup-estimate__total" style="padding-top: 16px; border-top: 2px solid #7C3AED;">
+                                <div class="mockup-estimate__total-label" style="height: 18px; width: 25%;"></div>
+                                <div class="mockup-estimate__total-amount" style="height: 18px; width: 25%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">Approach</span>
+            <h2 class="cs-section__title">Complexity made simple</h2>
+            <p>The key design challenge was managing <strong>progressive disclosure</strong> — showing just enough at each step so pros wouldn't feel overwhelmed, while providing access to the full power of the tool when needed. Line items, categories, markups, and taxes all had to be easy to add and adjust.</p>
+            <p>We focused on making the most common workflows lightning-fast: adding line items, adjusting quantities, and sending polished estimates to clients — all achievable in just a few taps on mobile.</p>
+        </section>
+
+        <div class="cs-process" data-animate="fade-up">
+            <div class="cs-process__step">
+                <span class="cs-process__number">01</span>
+                <div class="cs-process__text">
+                    <h4>Workflow mapping</h4>
+                    <p>Mapped the end-to-end estimating workflow from initial client consultation to signed approval, identifying pain points at each stage.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">02</span>
+                <div class="cs-process__text">
+                    <h4>Progressive disclosure design</h4>
+                    <p>Designed a layered interface where basic estimates are quick to create, while advanced features (markups, templates, categories) are accessible without cluttering the default experience.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">03</span>
+                <div class="cs-process__text">
+                    <h4>Client-facing output</h4>
+                    <p>Designed polished, branded estimate documents that professionals could be proud to share with homeowner clients.</p>
+                </div>
+            </div>
+            <div class="cs-process__step">
+                <span class="cs-process__number">04</span>
+                <div class="cs-process__text">
+                    <h4>Cross-platform optimization</h4>
+                    <p>Ensured the full estimate creation and management flow worked seamlessly on both web and the Houzz Pro mobile app.</p>
+                </div>
+            </div>
+        </div>
+
+        <section class="cs-section" data-animate="fade-up">
+            <span class="cs-section__label">Impact</span>
+            <h2 class="cs-section__title">Empowering pros to close more deals</h2>
+            <p>The Estimate Builder became one of the most-used features in the Houzz Pro suite, helping professionals present more polished proposals and close deals faster. By reducing the friction of estimate creation, we freed up professionals to spend more time doing what they do best — designing and building beautiful spaces.</p>
+        </section>
+
+        <div class="cs-metrics" data-animate="fade-up">
+            <div class="cs-metric">
+                <div class="cs-metric__value">60%</div>
+                <div class="cs-metric__label">Faster estimate creation</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric__value">Top 3</div>
+                <div class="cs-metric__label">Most-used Houzz Pro feature</div>
+            </div>
+            <div class="cs-metric">
+                <div class="cs-metric__value">Web+App</div>
+                <div class="cs-metric__label">Full cross-platform support</div>
+            </div>
+        </div>
+    </main>
+
+    <nav class="cs-nav">
+        <a href="houzz-pro-profile.html" class="cs-nav__link">
+            <span class="cs-nav__label">&larr; Previous</span>
+            <span class="cs-nav__title">Houzz Pro Profile</span>
+        </a>
+        <a href="../" class="cs-nav__link cs-nav__link--next">
+            <span class="cs-nav__label">All Projects &rarr;</span>
+            <span class="cs-nav__title">Back to Home</span>
+        </a>
+    </nav>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <span class="footer__copyright">&copy; 2025 Omer Zinger</span>
+            <span class="footer__tagline">Designed with intention</span>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>
