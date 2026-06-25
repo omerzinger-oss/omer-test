@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowstate — Task management that keeps teams in sync</title>
+    <meta name="description" content="Flowstate is the modern task management platform that helps teams plan, track, and ship work without the busywork.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================
+           FLOWSTATE — SaaS Hero Layout
+           Self-contained. Mobile-first, fully responsive.
+           ============================================ */
+
+        :root {
+            --bg: #0A0A0F;
+            --bg-soft: #12121A;
+            --surface: #181822;
+            --surface-2: #1F1F2C;
+            --border: rgba(255, 255, 255, 0.08);
+            --border-strong: rgba(255, 255, 255, 0.14);
+            --text: #F7F7FB;
+            --text-secondary: #A6A6B8;
+            --text-muted: #6E6E82;
+
+            --accent: #6D5BFF;
+            --accent-2: #00D4C8;
+            --accent-3: #FF8A5B;
+            --accent-glow: rgba(109, 91, 255, 0.35);
+
+            --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+            --ease: cubic-bezier(0.16, 1, 0.3, 1);
+            --radius: 16px;
+            --radius-sm: 10px;
+
+            /* Fluid horizontal gutter */
+            --gutter: clamp(1.25rem, 5vw, 4rem);
+        }
+
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            -webkit-text-size-adjust: 100%;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        button { font-family: inherit; cursor: pointer; border: none; background: none; }
+        svg { display: block; }
+        ul { list-style: none; }
+
+        /* --- Ambient background glow --- */
+        .page {
+            position: relative;
+            isolation: isolate;
+            overflow: hidden;
+        }
+        .page::before,
+        .page::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            z-index: -1;
+            pointer-events: none;
+        }
+        .page::before {
+            width: min(60vw, 640px);
+            aspect-ratio: 1;
+            top: -18%;
+            left: -10%;
+            background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+        }
+        .page::after {
+            width: min(55vw, 560px);
+            aspect-ratio: 1;
+            top: 10%;
+            right: -14%;
+            background: radial-gradient(circle, rgba(0, 212, 200, 0.18), transparent 70%);
+        }
+
+        /* ============================================
+           NAVBAR
+           ============================================ */
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            padding: 1.1rem var(--gutter);
+            background: rgba(10, 10, 15, 0.65);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s var(--ease);
+        }
+        .nav.is-scrolled { border-bottom-color: var(--border); }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+        .brand__mark {
+            display: grid;
+            place-items: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            box-shadow: 0 4px 16px var(--accent-glow);
+        }
+        .brand__mark svg { width: 18px; height: 18px; }
+
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+        .nav__link {
+            font-size: 0.94rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: color 0.2s var(--ease);
+        }
+        .nav__link:hover { color: var(--text); }
+
+        .nav__actions {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* --- Buttons --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            font-family: var(--font-body);
+            font-weight: 600;
+            font-size: 0.95rem;
+            line-height: 1;
+            padding: 0.8rem 1.35rem;
+            border-radius: 10px;
+            white-space: nowrap;
+            transition: transform 0.2s var(--ease), background 0.2s var(--ease), box-shadow 0.2s var(--ease), border-color 0.2s var(--ease);
+        }
+        .btn--primary {
+            color: #fff;
+            background: linear-gradient(135deg, var(--accent), #5849e0);
+            box-shadow: 0 8px 24px -8px var(--accent-glow);
+        }
+        .btn--primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 32px -8px var(--accent-glow);
+        }
+        .btn--ghost {
+            color: var(--text);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border);
+        }
+        .btn--ghost:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--border-strong);
+        }
+        .btn--lg { padding: 1rem 1.6rem; font-size: 1rem; }
+        .btn svg { width: 18px; height: 18px; }
+
+        .nav__cta { display: inline-flex; }
+
+        /* --- Mobile menu toggle --- */
+        .nav__toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            padding: 8px;
+        }
+        .nav__toggle span {
+            width: 22px;
+            height: 2px;
+            background: var(--text);
+            border-radius: 2px;
+            transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+            align-items: center;
+            gap: clamp(2rem, 5vw, 5rem);
+            max-width: 1320px;
+            margin-inline: auto;
+            padding: clamp(3rem, 7vw, 6rem) var(--gutter) clamp(4rem, 8vw, 7rem);
+        }
+
+        .hero__content { max-width: 600px; }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            padding: 0.45rem 0.9rem 0.45rem 0.5rem;
+            border: 1px solid var(--border);
+            border-radius: 100px;
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .badge__pill {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+            color: var(--accent-2);
+            padding: 0.2rem 0.55rem;
+            border-radius: 100px;
+            background: rgba(0, 212, 200, 0.12);
+        }
+
+        .hero__title {
+            font-family: var(--font-display);
+            font-weight: 700;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            line-height: 1.04;
+            letter-spacing: -0.03em;
+            margin-top: 1.6rem;
+        }
+        .hero__title .grad {
+            background: linear-gradient(110deg, var(--accent-2) 0%, var(--accent) 55%, var(--accent-3) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: transparent;
+        }
+
+        .hero__subtitle {
+            font-size: clamp(1.02rem, 1.4vw, 1.18rem);
+            color: var(--text-secondary);
+            margin-top: 1.4rem;
+            max-width: 32em;
+        }
+
+        .hero__cta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-top: 2.2rem;
+        }
+
+        .hero__note {
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-top: 1rem;
+        }
+        .hero__note svg { width: 16px; height: 16px; color: var(--accent-2); flex-shrink: 0; }
+
+        /* --- Social proof --- */
+        .proof {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 2.6rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .avatars { display: flex; }
+        .avatars span {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid var(--bg);
+            margin-left: -10px;
+            background-size: cover;
+            display: grid;
+            place-items: center;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #fff;
+        }
+        .avatars span:first-child { margin-left: 0; }
+        .avatars span:nth-child(1) { background: linear-gradient(135deg, #6D5BFF, #9B8CFF); }
+        .avatars span:nth-child(2) { background: linear-gradient(135deg, #00D4C8, #00A99E); }
+        .avatars span:nth-child(3) { background: linear-gradient(135deg, #FF8A5B, #FF6B9D); }
+        .avatars span:nth-child(4) { background: linear-gradient(135deg, #FFB84D, #FF8A5B); }
+        .proof__text { font-size: 0.88rem; color: var(--text-secondary); }
+        .proof__text strong { color: var(--text); font-weight: 600; }
+        .proof__stars { color: var(--accent-3); letter-spacing: 1px; }
+
+        /* ============================================
+           PRODUCT VISUAL — Kanban board mockup
+           ============================================ */
+        .showcase {
+            position: relative;
+            perspective: 1600px;
+        }
+
+        .board {
+            position: relative;
+            border-radius: var(--radius);
+            border: 1px solid var(--border-strong);
+            background: linear-gradient(165deg, var(--surface), var(--bg-soft));
+            box-shadow:
+                0 40px 80px -30px rgba(0, 0, 0, 0.8),
+                0 0 0 1px rgba(255, 255, 255, 0.02) inset;
+            padding: 1.1rem;
+            transform: rotateY(-9deg) rotateX(4deg);
+            transform-style: preserve-3d;
+            transition: transform 0.6s var(--ease);
+        }
+        .showcase:hover .board { transform: rotateY(-4deg) rotateX(2deg); }
+
+        .board__bar {
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0 0.3rem 0.9rem;
+        }
+        .board__bar i {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+            background: var(--surface-2);
+        }
+        .board__bar i:nth-child(1) { background: #FF5F57; }
+        .board__bar i:nth-child(2) { background: #FEBC2E; }
+        .board__bar i:nth-child(3) { background: #28C840; }
+        .board__bar span {
+            margin-left: auto;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-family: var(--font-display);
+        }
+
+        .columns {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+        }
+        .col__head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            padding: 0 0.2rem 0.7rem;
+        }
+        .col__count {
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.1rem 0.45rem;
+            border-radius: 100px;
+        }
+
+        .card {
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 0.7rem;
+            margin-bottom: 0.6rem;
+        }
+        .card__tag {
+            display: inline-block;
+            font-size: 0.62rem;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            padding: 0.15rem 0.45rem;
+            border-radius: 5px;
+            margin-bottom: 0.55rem;
+        }
+        .tag--design { color: #C7B8FF; background: rgba(109, 91, 255, 0.18); }
+        .tag--dev { color: #8EF0E9; background: rgba(0, 212, 200, 0.15); }
+        .tag--bug { color: #FFB1A0; background: rgba(255, 138, 91, 0.16); }
+        .tag--ops { color: #FFD98E; background: rgba(255, 184, 77, 0.16); }
+
+        .card__line {
+            height: 7px;
+            border-radius: 4px;
+            background: rgba(255, 255, 255, 0.13);
+            margin-bottom: 0.4rem;
+        }
+        .card__line--short { width: 60%; background: rgba(255, 255, 255, 0.07); }
+        .card__foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 0.7rem;
+        }
+        .card__people { display: flex; }
+        .card__people i {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            margin-left: -6px;
+            border: 2px solid var(--surface-2);
+        }
+        .card__people i:first-child { margin-left: 0; }
+        .card__people i:nth-child(1) { background: #6D5BFF; }
+        .card__people i:nth-child(2) { background: #00D4C8; }
+        .card__people i:nth-child(3) { background: #FF8A5B; }
+        .card__check {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+        }
+        .card__check svg { width: 12px; height: 12px; }
+
+        /* Floating progress chip */
+        .chip {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.7rem 0.9rem;
+            border-radius: 12px;
+            background: rgba(24, 24, 34, 0.9);
+            border: 1px solid var(--border-strong);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 20px 40px -16px rgba(0, 0, 0, 0.7);
+            z-index: 2;
+            animation: float 5s ease-in-out infinite;
+        }
+        .chip--done {
+            bottom: -1.2rem;
+            left: -1.4rem;
+        }
+        .chip--velocity {
+            top: 2rem;
+            right: -1.6rem;
+            animation-delay: -2.5s;
+        }
+        .chip__icon {
+            display: grid;
+            place-items: center;
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            flex-shrink: 0;
+        }
+        .chip--done .chip__icon { background: rgba(0, 212, 200, 0.16); color: var(--accent-2); }
+        .chip--velocity .chip__icon { background: rgba(109, 91, 255, 0.18); color: var(--accent); }
+        .chip__icon svg { width: 18px; height: 18px; }
+        .chip__label { font-size: 0.68rem; color: var(--text-muted); }
+        .chip__value { font-size: 0.95rem; font-weight: 700; font-family: var(--font-display); }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-9px); }
+        }
+
+        /* --- Entrance animation --- */
+        [data-reveal] {
+            opacity: 0;
+            transform: translateY(22px);
+            animation: reveal 0.8s var(--ease) forwards;
+        }
+        [data-reveal="1"] { animation-delay: 0.05s; }
+        [data-reveal="2"] { animation-delay: 0.15s; }
+        [data-reveal="3"] { animation-delay: 0.25s; }
+        [data-reveal="4"] { animation-delay: 0.35s; }
+        [data-reveal="5"] { animation-delay: 0.45s; }
+        [data-reveal="6"] { animation-delay: 0.6s; }
+        @keyframes reveal {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+
+        /* Tablet landscape & down: stack hero */
+        @media (max-width: 980px) {
+            .hero {
+                grid-template-columns: 1fr;
+                gap: clamp(3rem, 8vw, 4.5rem);
+                text-align: center;
+            }
+            .hero__content { max-width: 640px; margin-inline: auto; }
+            .hero__subtitle { margin-inline: auto; }
+            .hero__cta, .hero__note, .proof { justify-content: center; }
+            .proof { flex-direction: column; gap: 0.7rem; }
+            .showcase { perspective: none; }
+            .board { transform: none; }
+            .showcase:hover .board { transform: none; }
+            /* keep floating chips inside bounds on stacked layout */
+            .chip--done { left: 0; bottom: -1rem; }
+            .chip--velocity { right: 0; top: 1rem; }
+        }
+
+        /* Tablet portrait: collapse nav links */
+        @media (max-width: 860px) {
+            .nav__links { display: none; }
+            .nav__cta--secondary { display: none; }
+            .nav__toggle { display: flex; }
+
+            .nav__links.is-open {
+                display: flex;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                padding: 0.5rem var(--gutter) 1.25rem;
+                background: rgba(10, 10, 15, 0.96);
+                backdrop-filter: blur(14px);
+                -webkit-backdrop-filter: blur(14px);
+                border-bottom: 1px solid var(--border);
+            }
+            .nav__links.is-open .nav__link {
+                padding: 0.85rem 0;
+                border-bottom: 1px solid var(--border);
+                font-size: 1rem;
+            }
+        }
+
+        /* Phones */
+        @media (max-width: 560px) {
+            .hero { padding-top: 2.5rem; }
+            .hero__cta { flex-direction: column; align-items: stretch; }
+            .hero__cta .btn { width: 100%; }
+            .columns { gap: 0.55rem; }
+            .col:nth-child(3) { display: none; } /* keep 2 columns readable on small screens */
+            .columns { grid-template-columns: repeat(2, 1fr); }
+            .chip--velocity { display: none; }
+            .chip--done { left: 50%; transform: translateX(-50%); bottom: -1.3rem; }
+            .board { padding: 0.9rem; }
+        }
+
+        /* Very small phones */
+        @media (max-width: 380px) {
+            .col:nth-child(2) { display: none; }
+            .columns { grid-template-columns: 1fr; }
+        }
+
+        /* Respect reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.001ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.001ms !important;
+            }
+            [data-reveal] { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="page">
+        <!-- ============ NAV ============ -->
+        <nav class="nav" id="nav">
+            <a href="#" class="brand" aria-label="Flowstate home">
+                <span class="brand__mark" aria-hidden="true">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l3.5 3.5L20 5" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                Flowstate
+            </a>
+
+            <ul class="nav__links" id="nav-links">
+                <li><a href="#" class="nav__link">Product</a></li>
+                <li><a href="#" class="nav__link">Solutions</a></li>
+                <li><a href="#" class="nav__link">Pricing</a></li>
+                <li><a href="#" class="nav__link">Docs</a></li>
+            </ul>
+
+            <div class="nav__actions">
+                <a href="#" class="btn btn--ghost nav__cta nav__cta--secondary">Sign in</a>
+                <a href="#" class="btn btn--primary nav__cta">Start free</a>
+                <button class="nav__toggle" id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </nav>
+
+        <!-- ============ HERO ============ -->
+        <header class="hero">
+            <div class="hero__content">
+                <span class="badge" data-reveal="1">
+                    <span class="badge__pill">New</span>
+                    AI-assisted sprint planning is live
+                </span>
+
+                <h1 class="hero__title" data-reveal="2">
+                    The calm way to <span class="grad">manage every task</span> your team ships.
+                </h1>
+
+                <p class="hero__subtitle" data-reveal="3">
+                    Flowstate brings your tasks, sprints, and deadlines into one focused workspace —
+                    so your team spends less time coordinating and more time doing the work that matters.
+                </p>
+
+                <div class="hero__cta" data-reveal="4">
+                    <a href="#" class="btn btn--primary btn--lg">
+                        Start for free
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </a>
+                    <a href="#" class="btn btn--ghost btn--lg">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M8 5v14l11-7-11-7z" fill="currentColor"/></svg>
+                        Watch demo
+                    </a>
+                </div>
+
+                <p class="hero__note" data-reveal="4">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l3.5 3.5L20 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Free 14-day trial · No credit card required
+                </p>
+
+                <div class="proof" data-reveal="6">
+                    <div class="avatars" aria-hidden="true">
+                        <span>JK</span><span>MA</span><span>RL</span><span>+</span>
+                    </div>
+                    <p class="proof__text">
+                        <span class="proof__stars">★★★★★</span><br>
+                        Trusted by <strong>12,000+ teams</strong> at fast-moving companies
+                    </p>
+                </div>
+            </div>
+
+            <!-- Product visual -->
+            <div class="showcase" data-reveal="5" aria-hidden="true">
+                <div class="board">
+                    <div class="board__bar">
+                        <i></i><i></i><i></i>
+                        <span>Q3 Product Sprint</span>
+                    </div>
+
+                    <div class="columns">
+                        <!-- To do -->
+                        <div class="col">
+                            <div class="col__head">To do <span class="col__count">3</span></div>
+                            <div class="card">
+                                <span class="card__tag tag--design">Design</span>
+                                <div class="card__line"></div>
+                                <div class="card__line card__line--short"></div>
+                                <div class="card__foot">
+                                    <div class="card__people"><i></i><i></i></div>
+                                    <span class="card__check">
+                                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 6v6l4 2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/></svg>
+                                        Tue
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <span class="card__tag tag--bug">Bug</span>
+                                <div class="card__line"></div>
+                                <div class="card__line card__line--short"></div>
+                                <div class="card__foot">
+                                    <div class="card__people"><i></i></div>
+                                    <span class="card__check">2/5</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- In progress -->
+                        <div class="col">
+                            <div class="col__head">In progress <span class="col__count">2</span></div>
+                            <div class="card">
+                                <span class="card__tag tag--dev">Engineering</span>
+                                <div class="card__line"></div>
+                                <div class="card__line card__line--short"></div>
+                                <div class="card__foot">
+                                    <div class="card__people"><i></i><i></i><i></i></div>
+                                    <span class="card__check">6/8</span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <span class="card__tag tag--ops">Ops</span>
+                                <div class="card__line"></div>
+                                <div class="card__line card__line--short"></div>
+                                <div class="card__foot">
+                                    <div class="card__people"><i></i></div>
+                                    <span class="card__check">Today</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Done -->
+                        <div class="col">
+                            <div class="col__head">Done <span class="col__count">5</span></div>
+                            <div class="card">
+                                <span class="card__tag tag--design">Design</span>
+                                <div class="card__line"></div>
+                                <div class="card__foot">
+                                    <div class="card__people"><i></i><i></i></div>
+                                    <span class="card__check">
+                                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l3.5 3.5L20 5" stroke="#00D4C8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <span class="card__tag tag--dev">Engineering</span>
+                                <div class="card__line card__line--short"></div>
+                                <div class="card__foot">
+                                    <div class="card__people"><i></i></div>
+                                    <span class="card__check">
+                                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l3.5 3.5L20 5" stroke="#00D4C8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Floating chips -->
+                <div class="chip chip--done">
+                    <span class="chip__icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 12.5l3.5 3.5L20 5" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span>
+                        <span class="chip__label">Tasks completed</span><br>
+                        <span class="chip__value">248 this week</span>
+                    </span>
+                </div>
+
+                <div class="chip chip--velocity">
+                    <span class="chip__icon">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l6-6 4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 7h7v7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </span>
+                    <span>
+                        <span class="chip__label">Sprint velocity</span><br>
+                        <span class="chip__value">+32%</span>
+                    </span>
+                </div>
+            </div>
+        </header>
+    </div>
+
+    <script>
+        // Add border to nav on scroll
+        const nav = document.getElementById('nav');
+        const onScroll = () => nav.classList.toggle('is-scrolled', window.scrollY > 8);
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        // Mobile menu toggle
+        const toggle = document.getElementById('nav-toggle');
+        const links = document.getElementById('nav-links');
+        toggle.addEventListener('click', () => {
+            const open = links.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', String(open));
+        });
+        links.addEventListener('click', (e) => {
+            if (e.target.closest('.nav__link')) {
+                links.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    </script>
+</body>
+</html>
